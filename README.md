@@ -1,7 +1,7 @@
 # IllumioProject
 
 1. **Functionality**:   
-I tested my code by giving a CSV file containing rules as a input file. I tested against the given test cases and additional by calling the `accept_packet()` function from `main()` method. 
+I tested my code by giving a CSV file containing rules as a input file. I tested against the given test cases and additional by calling the `accept_packet()` function from `main()` method. If provided more time, I can also include JUnit Tests. Unit testing for each function can also be done additionally. 
 
 2. **Code Clarity and Cleanliness**:   
 I tried to wrap up my submission in the time period. I was not able to finish cleaning up and commenting where necessary. There are lot of gaps for improvements in the current code.
@@ -11,9 +11,10 @@ I have currently implemented non-optimal solution. However, I have thought throu
 
 **Approach: Merging IP Address Ranges and Port Ranges** (Better Space & Time Complexity)
 
-Considering there would be large number of rules, we can merge in following fashion:
-1. Inbound   
-  a. TCP
+Considering there would be large number of rules, we can merge in following fashion:   
+Inbound TCP (listIP, ListPort), Inbound UDP (listIP, ListPort), Outbound TCP (listIP, ListPort), Outbound UDP(ListIP, ListPort)
+
+For Ex: 
   List - Containing all ports/ranges of ports
   List - Containing all ips/ranges of ips
   
@@ -22,15 +23,12 @@ Considering there would be large number of rules, we can merge in following fash
   192.168.1.10 - 192.168.2.10 and 192.168.1.5 - 192.168.1.15 -> can be merged to 192.168.1.5 - 192.168.2.10
   For the new range of IPs, we will also merge the ports/ranges
   
-  b. UDP
-
-2. Outbound:   
-  a. TCP
-  
-  b. UDP
-  
   So, there will be total of 4 items (Inbound UDP, Inbound TCP, Outbound TCP, Outbound UDP) and each with list of ip ranges and port ranges.
   
  We will be processing the rules only once to form this new organized list and each time `accept_packet()` is called, we will only go through this new list which will be more faster. 
+ 
+ 
+**Preferences**
+1. Platform Team - Interested in High Availability Solutions, Infrastructure, Architecture Solutions, Development etc.
  
  
